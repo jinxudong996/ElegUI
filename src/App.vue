@@ -4,8 +4,10 @@ import type {ButtonInstance} from "./components/Button/types"
 import Button from "./components/Button/Button.vue"
 import Collapse from "./components/Collapse/Collapse.vue"
 import Item from "./components/Collapse/CollapseItem.vue"
+import Icon from './components/Icon/Icon.vue'
 
 const buttonRef = ref<ButtonInstance | null>(null)
+  const size = ref<any>('2x')
 onMounted(() => {
   console.log(321321123,buttonRef.value)
   if(buttonRef.value){
@@ -20,6 +22,7 @@ const openedValue = ref(['a'])
 
 <template>
   <header>
+    <Icon icon="arrow-up" :size="size" type="danger" color="#409eff"/>
     <Button ref="buttonRef" >Test Button</Button>
     <Button plain >Plain Button</Button>
     <Button round>Round Button</Button>
@@ -40,6 +43,9 @@ const openedValue = ref(['a'])
     <Button size="large" loading>Loading</Button>
     <Button size="large" icon="arrow-up">Icon</Button><br/><br/>   
     <Collapse v-model="openedValue">
+      <Item name="aa" #title disabled>
+        <h1>我是大标题</h1>
+      </Item>
       <Item name="a" title="Title A">
         <h1>headline title</h1>
         <div> this is content a aaa </div>
@@ -47,7 +53,7 @@ const openedValue = ref(['a'])
       <Item name="b" title="Title B">
         <div> this is bbbbb test </div>
       </Item>
-      <Item name="c" title="Disabled Title" disabled>
+      <Item name="c" title="Disabled Title">
         <div> this is cccc test </div>
       </Item>
     </Collapse>
