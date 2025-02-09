@@ -11,5 +11,8 @@
   "compilerOptions": {
     // ...
     "types": ["unplugin-vue-define-options/macros-global" /* ... */]
-  }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
