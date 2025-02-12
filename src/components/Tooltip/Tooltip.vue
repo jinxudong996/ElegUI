@@ -1,29 +1,29 @@
 <template>
-<div
-  class="vk-tooltip"
-  ref="popperContainerNode"
-  v-on="outerEvents"
->
   <div
-    class="vk-tooltip__trigger"
-    ref="triggerNode"
-    v-on="events"
+    class="vk-tooltip"
+    ref="popperContainerNode"
+    v-on="outerEvents"
   >
-    <slot />
-  </div>
-  <Transition :name="transition">
     <div
-      v-if="isOpen"
-      class="vk-tooltip__popper"
-      ref="popperNode"
+      class="vk-tooltip__trigger"
+      ref="triggerNode"
+      v-on="events"
     >
-      <slot name="content">
-        {{content}}
-      </slot>
-      <div id="arrow" data-popper-arrow></div>
+      <slot />
     </div>
-  </Transition>
-</div>
+    <Transition :name="transition">
+      <div
+        v-if="isOpen"
+        class="vk-tooltip__popper"
+        ref="popperNode"
+      >
+        <slot name="content">
+          {{content}}
+        </slot>
+        <div id="arrow" data-popper-arrow></div>
+      </div>
+    </Transition>
+  </div>
 </template>
 <script setup lang="ts">
 import { ref, watch, reactive, onUnmounted, computed } from 'vue'
