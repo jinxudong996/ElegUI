@@ -6,6 +6,8 @@ import Collapse from "./components/Collapse/Collapse.vue"
 import Item from "./components/Collapse/CollapseItem.vue"
 import Icon from './components/Icon/Icon.vue'
 
+import Tooltip from '@/components/Tooltip/Tooltip.vue'
+
 const buttonRef = ref<ButtonInstance | null>(null)
   const size = ref<any>('2x')
 onMounted(() => {
@@ -42,7 +44,7 @@ const openedValue = ref(['a'])
     <Button size="small">Small</Button><br/><br/>
     <Button size="large" loading>Loading</Button>
     <Button size="large" icon="arrow-up">Icon</Button><br/><br/>   
-    <Collapse v-model="openedValue">
+    <!-- <Collapse v-model="openedValue">
       <Item name="aa" #title disabled>
         <h1>我是大标题</h1>
       </Item>
@@ -57,7 +59,13 @@ const openedValue = ref(['a'])
         <div> this is cccc test </div>
       </Item>
     </Collapse>
-    {{openedValue}}
+    {{openedValue}} -->
+
+    <Tooltip 
+      content="hello tooltip" placement="top-start"
+    >
+      <Button> 激活 Tooltip </Button>
+    </Tooltip>
   </header>
   
   

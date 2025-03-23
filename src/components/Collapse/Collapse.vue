@@ -6,7 +6,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, provide, watch } from 'vue'
+import { ref, provide, watch ,onMounted} from 'vue'
 import type { NameType, CollapseProps, CollapseEmits } from './types'
 import { collapseContextKey } from './types'
 defineOptions({
@@ -15,7 +15,9 @@ defineOptions({
 const props = defineProps<CollapseProps>()
 const emits = defineEmits<CollapseEmits>()
 const activeNames = ref<NameType[]>(props.modelValue)
+console.log(111,activeNames)
 watch(() => props.modelValue, () => {
+  console.log(props.modelValue)
   activeNames.value = props.modelValue
 })
 if (props.accordion && activeNames.value.length > 1) {
@@ -44,4 +46,7 @@ provide(collapseContextKey, {
   activeNames,
   handleItemClick
 })
+onMounted(() => {
+  console.log('Providing collapseContext', { activeNames, handleItemClick });
+});
 </script>
