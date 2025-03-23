@@ -6,12 +6,12 @@ import {
   containerPreview,
   componentPreview,
 } from "@vitepress-demo-preview/plugin";
-// https://vitepress.dev/reference/site-config
+
 export default defineConfig({
   title: "组件库",
   description: "A VitePress Site",
+  base: "/ElegUI/", // 设置基础路径
   vite: {
-    base: "/ElegUI/",
     plugins: [
       VueMacros.vite({
         setupComponent: false,
@@ -34,22 +34,11 @@ export default defineConfig({
     },
   },
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "Home", link: "/" },
       { text: "组件", link: "/components/button" },
-      // { text: "Test", link: "/markdown-examples" },
     ],
-
     sidebar: [
-      // {
-      //   text: "Examples",
-      //   items: [
-      //     { text: "Markdown Examples", link: "/markdown-examples" },
-      //     { text: "Runtime API Examples", link: "/api-examples" },
-      //     { text: "Test here", link: "/api-examples" },
-      //   ],
-      // },
       {
         text: "Basic",
         items: [
@@ -60,7 +49,6 @@ export default defineConfig({
         ],
       },
     ],
-
     socialLinks: [
       { icon: "github", link: "https://github.com/jinxudong996/ElegUI" },
     ],
