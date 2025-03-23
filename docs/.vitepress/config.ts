@@ -11,6 +11,7 @@ export default defineConfig({
   title: "组件库",
   description: "A VitePress Site",
   vite: {
+    base: "/ElegUI/",
     plugins: [
       VueMacros.vite({
         setupComponent: false,
